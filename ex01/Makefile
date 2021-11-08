@@ -1,5 +1,5 @@
 
-# Makefile for Old-CPP Module 00 Ex00, updated Tue Nov  9 06:17:33 JST 2021
+# Makefile for Old-CPP Module 00 ex01, updated Tue Nov  9 08:18:22 JST 2021
 
 SRC := Contact.cpp PhoneBook.cpp main.cpp
 OBJ := Contact.o PhoneBook.o main.o
@@ -66,7 +66,7 @@ test: re
 source:
 	@mv Makefile Makefile.bak
 	@echo '' >> Makefile
-	@echo "# Makefile for Old-CPP Module 00 Ex00, updated `date`" >> Makefile
+	@echo "# Makefile for Old-CPP Module 00 ex01, updated `date`" >> Makefile
 	@echo '' >> Makefile
 	@echo SRC := `ls *.cpp` >> Makefile
 	@echo OBJ := `ls *.cpp | sed s/cpp$$/o/` >> Makefile
