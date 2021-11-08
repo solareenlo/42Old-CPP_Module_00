@@ -52,6 +52,10 @@ fclean: clean
 .PHONY: re
 re: fclean all
 
+.PHONY: valgrind
+valgrind: re
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+
 .PHONY: test
 test: re
 	./$(NAME) "shhhhh... I think the students are asleep..."
