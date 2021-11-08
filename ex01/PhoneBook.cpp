@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 05:25:48 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/11/09 07:02:14 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/11/09 07:15:14 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void PhoneBook::AddContact() {
     contact_size_++;
 }
 
-void PhoneBook::FormatedCoutCenter_(std::string const str) {
+void PhoneBook::FormatedCoutCenter_(std::string const str) const {
     std::cout << '|';
     std::cout << std::left << std::setw(10) << str;
 }
 
-void PhoneBook::FormatedCoutRight_(std::string const str) {
+void PhoneBook::FormatedCoutRight_(std::string const str) const {
     std::cout << '|';
     if (str.size() > 9)
         std::cout << std::setw(9) << str.substr(0, 9) << ".";
@@ -38,7 +38,7 @@ void PhoneBook::FormatedCoutRight_(std::string const str) {
         std::cout << std::right << std::setw(10) << str;
 }
 
-void PhoneBook::PutList_() {
+void PhoneBook::PutList_() const {
     PhoneBook::FormatedCoutCenter_("Index");
     PhoneBook::FormatedCoutCenter_("First Name");
     PhoneBook::FormatedCoutCenter_("Last Name");
@@ -60,7 +60,7 @@ void PhoneBook::PutList_() {
     std::cout << std::endl;
 }
 
-void PhoneBook::PutContact_(const int index) {
+void PhoneBook::PutContact_(const int index) const {
     if (index < 0 || contact_size_ - 1 < index) return;
     std::cout << "first name\t: " << contact_[index].GetFirstName()
               << std::endl;
@@ -83,7 +83,7 @@ void PhoneBook::PutContact_(const int index) {
     std::cout << contact_[index].GetDarkestSecret() << std::endl;
 }
 
-void PhoneBook::SearchContact() {
+void PhoneBook::SearchContact() const {
     if (PhoneBookIsEmpty_()) {
         std::cout << "Phone Book is empty. Please \"ADD\" contact first.";
         std::cout << std::endl;
@@ -93,6 +93,7 @@ void PhoneBook::SearchContact() {
     PhoneBook::PutList_();
     std::string index;
     bool put_content = true;
+
     for (;;) {
         std::cout << "Index > ";
         bool ok = true;
@@ -115,12 +116,12 @@ void PhoneBook::SearchContact() {
                 ok = false;
             }
         }
-        if (ok) {
+        if (ok)
             break;
-        } else {
+        else
             std::cout << "Invalid index." << std::endl;
-        }
     }
+
     if (put_content) {
         int i = atoi(index.c_str());
         if (0 <= i && i < contact_size_) PhoneBook::PutContact_(i);

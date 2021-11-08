@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 04:55:09 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/11/09 06:17:52 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/11/09 07:07:31 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main(int argc, char *argv[]) {
 
     PhoneBook phone_book;
     std::string cmd;
+
     for (;;) {
         std::cout << "> ";
         std::getline(std::cin, cmd);

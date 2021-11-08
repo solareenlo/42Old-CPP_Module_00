@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 05:32:05 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/11/09 06:48:49 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/11/09 07:17:08 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ class Contact {
  private:
     std::string contact_data_[CONTACT_SIZE];
     void GetLine_(std::string a, std::string &str);
-    bool IsEmailAddress_(const std::string &str);
+    bool IsEmailAddress_(const std::string &str) const;
     void SetFirstName_();
     void SetLastName_();
     void SetNickname_();
