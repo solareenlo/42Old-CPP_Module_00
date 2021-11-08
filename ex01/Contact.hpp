@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 05:32:05 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/11/09 06:02:38 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/11/09 06:48:49 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #define CONTACT_SIZE 11
 
+#include <cstdlib>
 #include <iostream>
 #include <string>
 

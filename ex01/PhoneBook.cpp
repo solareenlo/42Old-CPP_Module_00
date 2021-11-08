@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 05:25:48 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/11/09 06:06:54 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/11/09 07:02:14 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -85,37 +85,46 @@ void PhoneBook::PutContact_(const int index) {
 
 void PhoneBook::SearchContact() {
     if (PhoneBookIsEmpty_()) {
-        std::cout << "Phone Book is empty. Please ADD contact first.";
+        std::cout << "Phone Book is empty. Please \"ADD\" contact first.";
         std::cout << std::endl;
         return;
     }
+
     PhoneBook::PutList_();
-    std::string str;
+    std::string index;
+    bool put_content = true;
     for (;;) {
         std::cout << "Index > ";
-        bool flag = true;
-        std::getline(std::cin, str);
+        bool ok = true;
+        std::getline(std::cin, index);
         if (std::cin.bad() || std::cin.eof()) {
             std::cout << std::endl;
             std::cout << "EXIT" << std::endl;
-            exit(0);
+            std::exit(0);
         }
-        if (str.empty() || isdigit(str[0]) == 0) {
-            flag = false;
+        if (!index.compare("EXIT")) {
+            std::cout << "SEARCH EXIT" << std::endl;
+            put_content = false;
+            break;
+        }
+        if (index.empty() || isdigit(index[0]) == 0) {
+            ok = false;
         } else {
-            int i = atoi(str.c_str());
+            int i = atoi(index.c_str());
             if (i < 0 || contact_size_ - 1 < i) {
-                flag = false;
+                ok = false;
             }
         }
-        if (flag) {
+        if (ok) {
             break;
         } else {
             std::cout << "Invalid index." << std::endl;
         }
     }
-    int i = atoi(str.c_str());
-    if (0 <= i && i < contact_size_) PhoneBook::PutContact_(i);
+    if (put_content) {
+        int i = atoi(index.c_str());
+        if (0 <= i && i < contact_size_) PhoneBook::PutContact_(i);
+    }
 }
 
 bool PhoneBook::PhoneBookIsEmpty_() const { return (contact_size_ == 0); }

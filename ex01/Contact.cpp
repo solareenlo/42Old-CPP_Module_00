@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 05:35:24 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/11/09 06:24:57 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/11/09 06:38:56 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 #include "Contact.hpp"
@@ -64,7 +64,7 @@ void Contact::GetLine_(const std::string field, std::string &str) {
     if (std::cin.bad() || std::cin.eof()) {
         std::cout << std::endl;
         std::cout << "EXIT" << std::endl;
-        exit(0);
+		std::exit(0);
     }
 }
 
@@ -106,7 +106,11 @@ void Contact::SetPostalAddress_() {
                 }
             }
         }
-        if (ok == true) break;
+        if (ok == true) {
+            break;
+        } else {
+            std::cout << "Invalid postal address." << std::endl;
+        }
     }
 
     this->contact_data_[nPostalAddress] = postal_address;
@@ -130,7 +134,11 @@ void Contact::SetEmailAddress_() {
         if (!email_address.empty()) {
             if (!IsEmailAddress_(email_address)) ok = false;
         }
-        if (ok) break;
+        if (ok) {
+            break;
+        } else {
+            std::cout << "Invalid email address." << std::endl;
+        }
     }
 
     this->contact_data_[nEmailAddress] = email_address;
@@ -153,7 +161,11 @@ void Contact::SetPhoneNumber_() {
                 }
             }
         }
-        if (ok) break;
+        if (ok) {
+            break;
+        } else {
+            std::cout << "Invalid phone number." << std::endl;
+        }
     }
 
     this->contact_data_[nPhoneNumber] = phone_number;
