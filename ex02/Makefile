@@ -1,4 +1,3 @@
-
 # Makefile for Old-CPP Module 00 ex02, updated Tue Nov  9 08:23:14 JST 2021
 
 SRC := Account.cpp tests.cpp
@@ -68,7 +67,6 @@ test: re
 .PHONY: source
 source:
 	@mv Makefile Makefile.bak
-	@echo '' >> Makefile
 	@echo "# Makefile for Old-CPP Module 00 ex02, updated `date`" >> Makefile
 	@echo '' >> Makefile
 	@echo SRC := `ls *.cpp` >> Makefile

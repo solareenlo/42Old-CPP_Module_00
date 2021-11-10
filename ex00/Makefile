@@ -1,4 +1,3 @@
-
 # Makefile for Old-CPP Module 00 ex00, updated Tue Nov  9 08:19:53 JST 2021
 
 SRC := megaphone.cpp
@@ -65,7 +64,6 @@ test: re
 .PHONY: source
 source:
 	@mv Makefile Makefile.bak
-	@echo '' >> Makefile
 	@echo "# Makefile for Old-CPP Module 00 ex00, updated `date`" >> Makefile
 	@echo '' >> Makefile
 	@echo SRC := `ls *.cpp` >> Makefile
