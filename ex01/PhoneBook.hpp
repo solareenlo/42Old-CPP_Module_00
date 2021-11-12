@@ -6,7 +6,7 @@
 /*   By: tayamamo <tayamamo@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 05:17:37 by tayamamo          #+#    #+#             */
-/*   Updated: 2021/11/09 07:15:10 by tayamamo         ###   ########.fr       */
+/*   Updated: 2021/11/12 10:54:49 by tayamamo         ###   ########.fr       */
 /*   Copyright 2021                                                           */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 #include "Contact.hpp"
 
-#define PHONEBOOK_MAX_SIZE 8
-
 class PhoneBook {
  public:
     PhoneBook();
@@ -29,6 +27,7 @@ class PhoneBook {
     void SearchContact() const;
 
  private:
+    static int const PHONEBOOK_MAX_SIZE = 8;
     int contact_size_;
     Contact contact_[PHONEBOOK_MAX_SIZE];
     void FormatedCoutCenter_(std::string const str) const;
